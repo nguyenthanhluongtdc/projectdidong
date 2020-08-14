@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ExtraText">
+
+    <Button
+        style="@style/btnCreateBill"
+        android:background="@drawable/shadow_product_left"
+        android:drawableTop="@drawable/ic_baseline_add_circle_outline_24"
+        android:id="@+id/btnAddProduct"
+        android:text="Thêm sản phẩm" />
+
+    <Button
+        style="@style/btnCreateBill"
+        android:background="@drawable/shadow_product_left"
+        android:drawableTop="@drawable/ic_baseline_details_24"
+        android:text="Xem chi tiết hơn"
+        android:layout_marginTop="210dp"
+        android:id="@+id/btnDetailProduct"/>
+
+    <Button
+        style="@style/btnCreateBill"
+        android:background="@drawable/shadow_product_right"
+        android:layout_marginTop="130dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/btnListProduct"
+        android:drawableTop="@drawable/list"
+        android:text="Danh sách sản phẩm" />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="90dp"
+        android:layout_below="@+id/btnDetailProduct"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
+        android:textColor="#000000"
+        android:background="@drawable/shadow_number_product"
+        android:text="Sản phẩm hiện có (30)"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:id="@+id/numberProduct" />
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/numberProduct"
+        />
+
+</RelativeLayout>

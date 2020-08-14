@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Interface.itemProduct.ActivityAddProduct"
+    android:background="#f1f1f1">
+
+    <TextView
+        style="@style/tv"
+        android:text="Thêm Sản Phẩm"
+        android:id="@+id/tvTitlel"
+        android:background="@drawable/shadow_title"
+        />
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:drawableTop="@drawable/ic_baseline_image_24"
+        android:background="#f1f1f1"
+        android:layout_below="@+id/tvTitlel"
+        android:layout_alignParentRight="true"
+        android:id="@+id/btnAddImage"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAddImage"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_add_product"
+            android:id="@+id/txtCodeProduct"
+            android:hint="Mã sản phẩm"
+            android:textSize="20dp"
+            android:padding="15dp"
+            android:layout_marginBottom="10dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNameProduct"
+            android:hint="Tên sản phẩm"
+            android:textSize="20dp"
+            android:padding="15dp"
+            android:background="@drawable/shape_add_product"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPrice"
+            android:background="@drawable/shape_add_product"
+            android:padding="15dp"
+            android:textSize="20dp"
+            android:hint="Giá"
+            android:layout_marginBottom="10dp"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spOrigin"
+            android:padding="20dp"
+            android:background="@drawable/shape_add_product"
+            >
+        </Spinner>
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_btn_addhoadon"
+        android:text="Thêm Sản Phẩm"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:layout_marginBottom="100dp"
+        android:id="@+id/btnAddProduct"/>
+
+</RelativeLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="400dp"
+        android:layout_height="180dp"
+        android:background="@drawable/shadow_add_bill"
+        android:drawableTop="@drawable/ic_baseline_add_circle_outline_24"
+        android:id="@+id/btnAddBill"
+        android:text="Thêm hóa đơn"
+        android:paddingTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"/>
+
+    <Button
+        style="@style/btnCreateBill"
+        android:background="@drawable/shadow_product_left"
+        android:drawableTop="@drawable/ic_baseline_details_24"
+        android:text="Danh sách hóa đơn"
+        android:layout_below="@id/btnAddBill"
+        android:id="@+id/btnListBill"/>
+
+    <Button
+        style="@style/btnCreateBill"
+        android:background="@drawable/shadow_product_right"
+        android:layout_alignParentRight="true"
+        android:id="@+id/btnDetailBill"
+        android:drawableTop="@drawable/list"
+        android:text="Chi tiết hóa đơn"
+        android:layout_below="@id/btnAddBill"/>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="90dp"
+        android:layout_below="@+id/btnDetailBill"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
+        android:textColor="#000000"
+        android:background="@drawable/shadow_number_product"
+        android:text="Hóa đơn hiện có (30)"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:id="@+id/numberBill" />
+
+</RelativeLayout>

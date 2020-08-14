@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ExtraText"
+    >
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:background="@drawable/shadow_product_left"
+        android:drawableTop="@drawable/ic_baseline_add_circle_outline_24"
+        android:id="@+id/btnAddCustomer"
+        android:text="Thêm khách hàng"
+        android:layout_marginTop="100dp"
+        />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:background="@drawable/shadow_product_right"
+        android:layout_below="@+id/btnAddCustomer"
+        android:layout_alignParentRight="true"
+        android:id="@+id/btnListCustomer"
+        android:drawableTop="@drawable/list"
+        android:text="Danh sách khách hàng"
+        />
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="90dp"
+        android:layout_below="@+id/btnListCustomer"
+        android:layout_alignParentLeft="true"
+        android:textColor="#000000"
+        android:background="@drawable/shadow_number_product"
+        android:text="Khách hàng hiện có (30)"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:id="@+id/numberProduct"
+        android:paddingLeft="50dp"/>
+
+</RelativeLayout>
