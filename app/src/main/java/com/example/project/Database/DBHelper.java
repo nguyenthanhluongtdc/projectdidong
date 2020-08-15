@@ -17,10 +17,14 @@ public class DBHelper extends SQLiteOpenHelper {
         String sql3 = "CREATE TABLE Bill(CodeBill text PRIMARY KEY, CodeCustomer text, DateBill text, TotalMoney real)";
         String sql4 = "CREATE TABLE DetailBill(CodeBill text , CodeProduct text, NameProduct text, " +
                 "Amount integer,Price real,TotalMoney real)";
+
+        String sql5 = "CREATE TABLE Statistical(Id text PRIMARY KEY, Selling integer)";
+
         db.execSQL(sql1);
         db.execSQL(sql2);
         db.execSQL(sql3);
         db.execSQL(sql4);
+        db.execSQL(sql5);
     }
 
     @Override

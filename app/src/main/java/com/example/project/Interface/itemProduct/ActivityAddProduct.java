@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.project.Database.DBProduct;
+import com.example.project.Database.DBStatistical;
 import com.example.project.Model.Product;
 import com.example.project.R;
 
@@ -29,7 +30,8 @@ public class ActivityAddProduct extends AppCompatActivity {
     Button btnAddImageProduct, btnAddProduct;
     private static final int PICK_IMAGE = 100;
     DBProduct dbProduct;
-    byte [] imgProduct;
+    DBStatistical dbStatistical;
+    byte [] imgProduct = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,21 +42,27 @@ public class ActivityAddProduct extends AppCompatActivity {
     }
 
     private void setEvent() {
-        btnAddImageProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
         btnAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Product product = new Product(txtCodeProduct.getText().toString(),
-                        imgProduct,txtNameProduct.getText().toString(),
-                        spOrigin.getSelectedItem().toString(),
-                        Float.parseFloat(txtPrice.getText().toString()));
-                dbProduct.insert(product);
+                if(imgProduct == null){
+                    Toast.makeText(ActivityAddProduct.this,"Vui lòng chọn hình ảnh",Toast.LENGTH_LONG).show();
+                }else {
+                    Product product = new Product(txtCodeProduct.getText().toString(),
+                            imgProduct,txtNameProduct.getText().toString(),
+                            spOrigin.getSelectedItem().toString(),
+                            Float.parseFloat(txtPrice.getText().toString()));
+                    dbProduct.insert(product);
+                    txtCodeProduct.setHint("Mã sản phẩm");
+                    txtNameProduct.setHint("Tên sản phẩm");
+                    txtPrice.setHint("Giá");
+                    spOrigin.setSelection(listOrigin.indexOf(listOrigin.get(0)));
+                    imgProduct = null;
+
+                    dbStatistical.newInsert(txtCodeProduct.getText().toString());
+
+                    Toast.makeText(ActivityAddProduct.this,"Thêm thành công",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -78,7 +86,7 @@ public class ActivityAddProduct extends AppCompatActivity {
                 FileInputStream fs = new FileInputStream(x);
                 imgProduct = new byte[fs.available()];
                 fs.read(imgProduct);
-                Toast.makeText(ActivityAddProduct.this,"successfuly",Toast.LENGTH_LONG).show();
+                Toast.makeText(ActivityAddProduct.this,"Đã chọn",Toast.LENGTH_LONG).show();
             }catch (Exception ex){
                 Toast.makeText(ActivityAddProduct.this,ex.getMessage(),Toast.LENGTH_LONG).show();
             }
@@ -121,5 +129,6 @@ public class ActivityAddProduct extends AppCompatActivity {
         btnAddImageProduct = findViewById(R.id.btnAddImage);
         btnAddProduct = findViewById(R.id.btnAddProduct);
         dbProduct = new DBProduct(this);
+        dbStatistical = new DBStatistical(this);
     }
 }

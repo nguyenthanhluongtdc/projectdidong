@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Interface.itemBill.ActivityDetailBill"
+    android:padding="10dp"
+    >
+    <TextView
+        style="@style/tv"
+        android:text="Danh Sách Chi Tiết Hóa Đơn"
+        android:id="@+id/tvTitle"
+        android:background="@drawable/shadow_title"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:text="Click để xem chi tiết hơn"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        android:id="@+id/tvDes"
+        android:layout_marginBottom="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvDes"
+        android:padding="20dp"
+        android:background="@drawable/linear_product"
+        android:layout_margin="10dp">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lvDetailBill"/>
+    </RelativeLayout>
+
+</RelativeLayout>

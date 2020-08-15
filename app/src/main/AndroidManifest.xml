@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.project">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Interface.itemProduct.ActivityUpdateDeleteProduct"></activity>
+        <activity android:name=".Interface.itemBill.ActivityDetailBill"></activity>
+        <activity android:name=".Interface.itemCustomer.ActivityListCustomer" />
+        <activity android:name=".Interface.itemCustomer.ActivityUpdateDeleteCustomer" />
+        <activity android:name=".Interface.itemCustomer.ActivityAddCustomer" />
+        <activity android:name=".Interface.itemProduct.ActivityUpdateDeleteProduct" />
         <activity android:name=".Interface.itemProduct.ActivityListProduct" />
         <activity android:name=".Interface.itemProduct.ActivityAddProduct" />
         <activity android:name=".Interface.itemBill.ActivityUpdateDeleteBill" />

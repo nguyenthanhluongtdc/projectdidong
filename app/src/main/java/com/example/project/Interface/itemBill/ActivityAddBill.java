@@ -19,8 +19,10 @@ import android.widget.Toast;
 import com.example.project.Adapter.CustomGridViewChooseProduct;
 import com.example.project.Adapter.CustomSpiner;
 import com.example.project.Database.DBBill;
+import com.example.project.Database.DBCustomer;
 import com.example.project.Database.DBDetailBill;
 import com.example.project.Database.DBProduct;
+import com.example.project.Database.DBStatistical;
 import com.example.project.Model.Bill;
 import com.example.project.Model.Customer;
 import com.example.project.Model.DetailBill;
@@ -56,6 +58,8 @@ public class ActivityAddBill extends AppCompatActivity implements DatePickerDial
     DBProduct dbProduct;
     DBBill dbBill;
     DBDetailBill dbDetailBill;
+    DBCustomer dbCustomer;
+    DBStatistical dbStatistical;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,11 +139,25 @@ public class ActivityAddBill extends AppCompatActivity implements DatePickerDial
                             totalMoney);
                     //insert detailBill database
                     for(DetailBill detailBill : chooseProduct){
+//                        int i = dbStatistical.getOne(detailBill.getCodeProduct());
+
                         dbDetailBill.InsertDetailBill(detailBill);
+//                        dbStatistical.update(detailBill.getCodeProduct(),
+//                                i+ detailBill.getAmount());
                     }
                     //insert bill database
                     dbBill.InsertBill(bill);
                     Toast.makeText(ActivityAddBill.this, "Successfuly", Toast.LENGTH_SHORT).show();
+
+                    txtCodeBill.setHint("Mã hóa đơn");
+
+                    tvDateNgayLap.setText("Chọn date");
+
+                    setData();
+                    chooseProduct.clear();
+                    totalMoney = 0;
+                    tvTotalMoney.setText(totalMoney + "");
+                    setDataGridView();
                 }
             }
         });
@@ -163,9 +181,7 @@ public class ActivityAddBill extends AppCompatActivity implements DatePickerDial
     }
 
     private void setData() {
-        listCustomer.add(new Customer("KH01","thi a","TPHCM","08898239823"));
-        listCustomer.add(new Customer("KH02","thi b","HA NOI","0873474744"));
-        listCustomer.add(new Customer("KH03","thi c","NINH THUAN","098984445"));
+        listCustomer = dbCustomer.getCustomer();
         for(Customer cus: listCustomer){
             listCodeCustomer.add(cus.getCodeCustomer());
         }
@@ -197,6 +213,8 @@ public class ActivityAddBill extends AppCompatActivity implements DatePickerDial
         dbProduct = new DBProduct(this);
         dbBill = new DBBill(this);
         dbDetailBill = new DBDetailBill(this);
+        dbCustomer= new DBCustomer(this);
+        dbStatistical = new DBStatistical(this);
     }
 
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
